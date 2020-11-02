@@ -2,8 +2,8 @@ def generate_primes(to_generate):
     """
     Generate a sequence of prime numbers
 
-    Keyword arguments:
-        to_generate -- number of primes to generate
+    Args:
+        to_generate: number of primes to generate
     """
 
     known_primes = [2, 3]

@@ -8,14 +8,15 @@ from concurrent.futures import ProcessPoolExecutor
 
 DEFAULT_NUM_TRIALS = 10000
 SUMMARY_FMT_STR = "# Heads: {:>6d} ({:>6.4f}) / # Tails {:>6d} ({:>6.4f})"
+MAX_NUM_PROCS = 32
 
 
 def simulate_flips(num_trials):
     """
     Simulate a specified number of coin flips
 
-    Keyword arguments:
-        num_trials -- number of trials to attempt
+    Args:
+        num_trials: number of trials to attempt
     """
 
     counts = {"Heads": 0, "Tails": 0}
@@ -33,9 +34,9 @@ def print_summary(counts):
     """
     Print coin flip statistics (including probability distribution)
 
-    Keyword arguments:
-        counts -- heads and tails counts in the form
-                  {"Heads": int, "Tails": int}
+    Args:
+        counts: heads and tails counts in the form
+                {"Heads": int, "Tails": int}
     """
 
     total_trials = sum(counts.values())
@@ -82,16 +83,16 @@ def main():
     try:
         num_procs = int(sys.argv[1])
 
-    except (IndexError, ValueError) as err:
+    except (IndexError, ValueError) as _err:
         num_procs = 1
 
-    if num_procs > 32:
-        num_procs = 32
+    if num_procs > MAX_NUM_PROCS:
+        num_procs = MAX_NUM_PROCS
 
     try:
         num_trials = int(sys.argv[2])
 
-    except (IndexError, ValueError) as err:
+    except (IndexError, ValueError) as _err:
         num_trials = DEFAULT_NUM_TRIALS
 
     if num_procs == 1:
