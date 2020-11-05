@@ -9,6 +9,12 @@ from linkedlist import LinkedList
 # Tuples are immutable
 PROGRAM_HEADING = ("Linked List Review", "Thomas J. Kennedy")
 
+DIVIDERS = {
+    "*": "*" * 80,
+    "#": "#" * 80,
+    "-": "-" * 80
+}
+
 MIN: int = -10  # Lower bound for number generation
 MAX: int = +10  # Upper bound for number generation
 
@@ -37,12 +43,12 @@ def main():
         to_generate = 10
 
     # Print the program heading
-    print("-" * 80)
+    print(DIVIDERS["-"])
 
     for line in PROGRAM_HEADING:
         print(f"{line:^80}")
 
-    print("-" * 80)
+    print(DIVIDERS["-"])
 
     # Create a Linked List
     random_ints = LinkedList()
@@ -51,20 +57,19 @@ def main():
 
     print(random_ints)
 
-    print("*" * 80)
+    print(DIVIDERS["*"])
 
     random_copy = copy.deepcopy(random_ints)
-
     random_copy.append(337)
 
     print(random_copy)
 
-    print("*" * 80)
+    print(DIVIDERS["*"])
     print(random_ints)
 
-    print("#" * 80)
+    print(DIVIDERS["#"])
     print("{:^80}".format("Iterators!"))
-    print("#" * 80)
+    print(DIVIDERS["#"])
 
     for idx, value in enumerate(random_ints):
         print(f"Node # {idx:>4} - {value:>4}")
