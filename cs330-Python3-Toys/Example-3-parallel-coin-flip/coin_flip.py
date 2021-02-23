@@ -59,8 +59,9 @@ def run_parallel(num_workers, num_trials):
     futures = list()
 
     with ProcessPoolExecutor(max_workers=num_workers) as executor:
-        for _ in [jobs_per_thread] * (num_workers - 1) + [jobs_for_last]:
-            futures.append(executor.submit(simulate_flips, jobs_per_thread))
+        # Fix list issue
+        for num_jobs in [jobs_per_thread] * (num_workers - 1) + [jobs_for_last]:
+            futures.append(executor.submit(simulate_flips, num_jobs))
 
     total_heads = 0
     total_tails = 0
