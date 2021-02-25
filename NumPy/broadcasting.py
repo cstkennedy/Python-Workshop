@@ -26,14 +26,15 @@ def broadcast_demo():
     print()
 
     # Benchmark
+    num_times = 1000000
     def op_wrapper_py():
-        prices = range(1, 1000000, 1)
+        prices = range(1, num_times, 1)
         prices = [0.9 * price for price in prices]
 
     py_list = timeit.timeit(op_wrapper_py, number=100)
 
     def op_wrapper_np():
-        prices = np.arange(0, 1000000, 1, dtype=np.float64)
+        prices = np.arange(0, num_times, 1, dtype=np.float64)
         prices[:] *= 0.9
 
     np_array = timeit.timeit(op_wrapper_np, number=100)
