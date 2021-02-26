@@ -1,6 +1,7 @@
 **.pyc
 **.tox
 **.dat
+**.swp
 
 **htmlcov
 **.coverage
