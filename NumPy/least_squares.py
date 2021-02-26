@@ -39,7 +39,7 @@ def solve_matrix(matrix_XTX, matrix_XTY):
         current_col = i
         for j in range(i + 1, num_rows):
 
-            if matrix_XTX[largest_idx, i] < matrix_XTX[j, current_col]:
+            if matrix_XTX[largest_idx, current_col] < matrix_XTX[j, current_col]:
                 largest_idx = j
 
         # Swap
