@@ -19,6 +19,7 @@ def broadcast_demo():
 
     def op_wrapper_np():
         prices = np.arange(0, num_values, 1, dtype=np.float64)
+        prices *= 0.9
 
     np_array = timeit.timeit(op_wrapper_np, number=num_runs)
 
