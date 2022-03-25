@@ -12,7 +12,7 @@ def main():
     exercises = ["Homework 1", "Homework 2", "Exam 1", "Exam 2"]
     students = ["John", "Tom", "Bob"]
 
-    grades = np.array([[100., 98, 100., 90.],
+    grades = np.array([[100., 98., 100., 90.],
                        [100.,  0., 70., 90.],
                        [100., 70., 90., 80.]])
 
